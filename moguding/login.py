@@ -15,6 +15,7 @@ import requests
 from selenium import webdriver
 from PIL import Image
 from global_config import *
+import pyautogui
 # 首先，我们可以看到login这个文件的代码，这个文件是作为库被调用的，其作用为实现蘑菇丁这个网站的自动登录功能，最开始是调用了本次代码所需实现的库，那么接下来我们往下看。
 
 
@@ -161,5 +162,7 @@ def f_all(username,password,implicitly_time,wait_time,get_code_image,image_scree
         driver = _f2(driver,implicitly_time,wait_time,get_code_image,image_screenshot,save_screenshot,chaojiying_usename,chaojiying_password,chaojiying_userid)
         time.sleep(wait_time)
         ret = _f3(driver)
+        time.sleep(wait_time)
+        pyautogui.hotkey("enter")
     return driver
 # 这个函数，将前面的所有函数都连在了一起，在调用这个库的时候，只需要调用这个函数就可以实现上面的所有功能。

@@ -148,6 +148,9 @@ def job():
 if __name__ == "__main__":
     # 登录
     driver = f_all(username,password,implicitly_time,wait_time,get_code_image,image_screenshot,save_screenshot,chaojiying_usename,chaojiying_password,chaojiying_userid)  
+    # 通过操控enter键来跳过弹窗
+    time.sleep(wait_time)
+    pyautogui.hotkey("enter")
     # 爬取周报页面所有的提交者的姓名和提交日期，并且存入列表write中
     write = get_write_list(driver,wait_time)
     # 获取本周的开始日和结束日的日期
@@ -156,4 +159,11 @@ if __name__ == "__main__":
     not_write_student_remind_dingding,not_student_phone_number = get_not_write_list(write,this_week_start_fin,this_week_end_fin,student_list,student_message_list)
     # 用钉钉机器人提醒未写的人
     all_robbot(not_write_student_remind_dingding,at_mobiles = not_student_phone_number)
+    # 调用api获取超级鹰账号剩余的题分
+    tifen_message = "剩余题分:" + str(get_chaojiying_tifen(chaojiying_usename,chaojiying_password))
+    test_two_message = "批改已完成"
+    # 在钉钉群里提醒剩余的题分
+    all_robbot(tifen_message,at_mobiles = [])
+    # 在钉钉群里告诉大家批改完成
+    all_robbot(test_two_message,at_mobiles = [])
 

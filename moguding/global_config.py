@@ -5,7 +5,7 @@
 # 作者：江致远
 # 作者邮箱：1914813051@qq.com
 # 语雀链接：https://www.yuque.com/ol1q37/gi94xp/kcrzm7
-# 修改日期：2021年9月14日
+# 修改日期：2021年10月8日
 
 
 import os.path
@@ -20,9 +20,9 @@ test_one_screenshot = os.path.join(test_one_folder,"顶岗实习商数181成绩.
 save_screenshot = os.path.join(base_folder,"pic.png")
 image_screenshot = os.path.join(base_folder,"pic.png")
 get_code_image = os.path.join(base_folder,"yanzhen.png")
-chaojiying_usename = "nmsl12138"
-chaojiying_password = "lukaiqiang0.0"
-chaojiying_userid = "909405"
+chaojiying_usename = "1830822911"
+chaojiying_password = "gk1830822911"
+chaojiying_userid = "923304"
 wait_time = 3
 implicitly_time = 8
 username = "15268112200"
