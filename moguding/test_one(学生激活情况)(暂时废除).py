@@ -17,7 +17,7 @@ import os.path
 from PIL import Image
 import requests
 from hashlib import md5
-from login import * #添加login文件进去
+from login_new import * #添加login文件进去
 from global_config import *
 from selenium.webdriver.common.keys import Keys
 from dingding_robbot import *
@@ -39,12 +39,12 @@ def _inquire(driver,wait_time):
     # 下拉列表框，选择2020-2021(当前学年)
     driver.find_element_by_xpath("//input[@type='text']").click()
     time.sleep(wait_time)
-    driver.find_element_by_xpath('//*[contains(text(),"2020-2021(当前学年)")]').click()
+    driver.find_element_by_xpath('//*[contains(text(),"2021-2022(当前学年)")]').click()
     time.sleep(wait_time)
     # 下拉列表框，选择2018级商务数据分析与应用顶岗实习
     driver.find_element_by_xpath("(//input[@type='text'])[2]").click()
     time.sleep(wait_time)
-    driver.find_element_by_xpath('//*[contains(text(), "2018级商务数据分析与应用顶岗实习")]').click()
+    driver.find_element_by_xpath('//*[contains(text(), "2019级商务数据分析与应用顶岗实习")]').click()
     time.sleep(wait_time)
     # 点击查询
     look_up = driver.find_element_by_xpath('//span[text()="查询"]')
@@ -84,7 +84,7 @@ def _get_not_activation(all_student_information):
 
 def all_student_information_final(username,password,implicitly_time,wait_time,get_code_image,image_screenshot,save_screenshot,chaojiying_usename,chaojiying_password,chaojiying_userid):
     # 登录
-    driver = f_all(username,password,implicitly_time,wait_time,get_code_image,image_screenshot,save_screenshot,chaojiying_usename,chaojiying_password,chaojiying_userid)  
+    driver = login(username,password,wait_time)
     # 查询当前学年的所有学生
     html = _inquire(driver,wait_time)
     # 将所有学生的姓名的激活状态存入列表all_student_information中

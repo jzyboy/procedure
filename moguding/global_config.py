@@ -5,7 +5,7 @@
 # 作者：江致远
 # 作者邮箱：1914813051@qq.com
 # 语雀链接：https://www.yuque.com/ol1q37/gi94xp/kcrzm7
-# 修改日期：2021年10月8日
+# 修改日期：2021年10月13日
 
 
 import os.path
@@ -25,6 +25,7 @@ chaojiying_password = "gk1830822911"
 chaojiying_userid = "923304"
 wait_time = 3
 implicitly_time = 8
+test_two_message = "批改完成"
 username = "15268112200"
 password = "zhoubt"
 username_new = "33090219741119092X"

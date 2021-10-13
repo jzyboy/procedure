@@ -19,7 +19,7 @@ from PIL import Image
 import requests
 import pyautogui
 from hashlib import md5
-from login import * #添加login文件进去
+from login_new import * #添加login文件进去
 from global_config import *
 from selenium.webdriver.common.keys import Keys
 from get_chaojiying_tifen import *
@@ -243,7 +243,7 @@ def get_star_and_comment(student_number,wait_time,driver,list_pingyu):
 
 if __name__ == "__main__":
     # 登录
-    driver = f_all(username,password,implicitly_time,wait_time,get_code_image,image_screenshot,save_screenshot,chaojiying_usename,chaojiying_password,chaojiying_userid)    
+    driver = login(username,password,wait_time)
     # 下拉列表以及确认
     time.sleep(wait_time)
     pyautogui.hotkey("enter")
@@ -252,11 +252,6 @@ if __name__ == "__main__":
     student_number = get_cyclic_num(html)
     # 对所有的学生进行评星，评语
     get_star_and_comment(student_number,wait_time,driver,list_pingyu)
-    # 调用api获取超级鹰账号剩余的题分
-    tifen_message = "剩余题分:" + str(get_chaojiying_tifen(chaojiying_usename,chaojiying_password))
-    test_two_message = "批改已完成"
-    # 在钉钉群里提醒剩余的题分
-    all_robbot(tifen_message,at_mobiles = [])
     # 在钉钉群里告诉大家批改完成
     all_robbot(test_two_message,at_mobiles = [])
 

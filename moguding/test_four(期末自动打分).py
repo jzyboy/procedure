@@ -20,7 +20,7 @@ from hashlib import md5
 import pyautogui
 import xlrd
 from lxml import etree
-from login import * #添加login文件进去
+from login_new import * #添加login文件进去
 from global_config import *
 from get_chaojiying_tifen import *
 from dingding_robbot import *
@@ -204,7 +204,7 @@ def _a_student_all_grade_process(i,_names,driver,wait_time,_information,percents
 
 if __name__ == '__main__':
     # 登录
-    driver = f_all(username,password,implicitly_time,wait_time,get_code_image,image_screenshot,save_screenshot,chaojiying_usename,chaojiying_password,chaojiying_userid)  
+    driver = login(username,password,wait_time)
     # 实现将excel中的姓名列和评级列的数据转化为列表information。
     _information = get_excel_information(test_one_screenshot)
     # 将浏览器的网页跳转到实习成绩考核页面
@@ -218,8 +218,4 @@ if __name__ == '__main__':
         _click_check(i,wait_time,driver)
         # 实现单个学生的校内老师评分和企业综合评分
         _a_student_all_grade_process(i,_names,driver,wait_time,_information,percents)
-    # 调用api获取超级鹰账号剩余的题分
-    tifen_message = "剩余题分:" + str(get_chaojiying_tifen(chaojiying_usename,chaojiying_password))
-    # 在钉钉群里提醒剩余的题分
-    all_robbot(tifen_message,at_mobiles = [])
-    
+

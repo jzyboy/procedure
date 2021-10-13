@@ -1,0 +1,8 @@
+test_one由于页面原因暂时无法使用
+test_two为提醒学生写周报，需要配合dingding_robbot进行使用
+test_three为自动批改周报，需要配合dingding_robbot进行使用
+test_four为期末自动打分，需要配合excel成绩表进行使用（测试的次数比较少，有报错请联系我，邮箱为1914813051@qq.com）
+test_five为教师月报编写，不过半成品，需要自己写好之后放在指定文件夹里，需要后期进行优化。
+主要的变量在global_config里，教师账号，评语等都可以在这里进行修改
+login_new为登录的代码，通常进行调用
+login和test_two由于都有了更新迭代版代码，因此原版可以忽略。
